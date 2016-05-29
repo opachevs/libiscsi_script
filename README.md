@@ -1,1 +1,0 @@
-# libiscsi_script
