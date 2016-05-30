@@ -15,7 +15,7 @@ fi
 #download and extract package
 echo "Starting Installer"
 wget https://github.com/sahlberg/libiscsi/archive/master.zip
-unzip master.zip
+unzip master.zip > /tmp/master_unzip.results
 
 #compile
 cd libiscsi-master
