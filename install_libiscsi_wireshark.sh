@@ -20,7 +20,7 @@ unzip master.zip
 #compile
 cd libiscsi-master
 chmod 777 autogen.sh
-./autogen.sh
+./autogen.sh > /tmp/autogen.results
 ./configure > /tmp/configure.results
 grep libcunit /tmp/configure.results |grep yes
 if [ $? -eq 0 ]; then
@@ -29,8 +29,8 @@ else
 	echo "libcunit error, run configure manually to check"
 	exit 1
 fi
-make
-./test-tool/iscsi-test-cu -l
+make > /tmp/make.results
+./test-tool/iscsi-test-cu -l | grep ALL
 if [ $? -eq 0 ];then
 	echo "libiscsi installed sucessfully"
 else
