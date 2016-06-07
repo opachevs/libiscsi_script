@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #install dependencies
-yum install -y unzip CUnit CUnit-devel make automake autoconf libtool wireshark wireshark-gnome xauth
+yum install -y unzip CUnit CUnit-devel make automake autoconf libtool wireshark wireshark-gnome xauth > /tmp/installation.results
 
 if [ -f master.zip ] ;then
 	rm master.zip
@@ -14,7 +14,7 @@ fi
 
 #download and extract package
 echo "Starting Installer"
-wget https://github.com/sahlberg/libiscsi/archive/master.zip
+wget https://github.com/opachevs/libiscsi/archive/master.zip
 unzip master.zip > /tmp/master_unzip.results
 
 #compile
@@ -38,5 +38,6 @@ else
 	exit 1
 fi
 
+rm master.zip
 
 
