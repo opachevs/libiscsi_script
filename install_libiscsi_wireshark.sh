@@ -13,7 +13,7 @@ fi
 
 
 #download and extract package
-echo "Starting Installer"
+echo -e "\e[96m>>>Starting Installer...\e[0m"
 wget https://github.com/opachevs/libiscsi/archive/master.zip
 unzip master.zip > /tmp/master_unzip.results
 
@@ -24,17 +24,17 @@ chmod 777 autogen.sh
 ./configure > /tmp/configure.results
 grep libcunit /tmp/configure.results |grep yes
 if [ $? -eq 0 ]; then
-	echo " ./configure run sucessfully"
+	echo -e "\e[32m>>>./configure run sucessfully\e[0m"
 else
-	echo "libcunit error, run configure manually to check"
+	echo -e "\e[31m>>>libcunit error, run configure manually to check\e[0m"
 	exit 1
 fi
 make > /tmp/make.results
 ./test-tool/iscsi-test-cu -l | grep ALL
 if [ $? -eq 0 ];then
-	echo "libiscsi installed sucessfully"
+	echo -e "\e[32m>>>libiscsi installed sucessfully\e[0m"
 else
-	echo "unexpected error"
+	echo -e "\e[31m>>>unexpected error\e[0m"
 	exit 1
 fi
 
