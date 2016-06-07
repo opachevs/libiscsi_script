@@ -38,6 +38,7 @@ else
 	exit 1
 fi
 
+cd ..
 rm master.zip
 
 
